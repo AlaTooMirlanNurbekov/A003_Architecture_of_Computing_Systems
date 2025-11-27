@@ -1,6 +1,6 @@
 /* 
   Task 0007 : IR-controlled LED blink pattern
-  Description: In this activity, a VS1838B IR receiver and a standard IR remote 
+  Description: A VS1838B IR receiver and a standard IR remote 
   are used to control an LED. Each numbered button on the remote triggers 
   the LED to blink a specific number of times. For example, button “9” blinks 
   the LED nine times, button “1” blinks once, and so on. After completing the 
