@@ -1,12 +1,12 @@
 /* 
   Task 0003 : button-triggered buzzer melody
-  Description: In this activity, a piezo buzzer and a push button are connected to the Arduino.
+  Description: a buzzer and a push button are connected to the Arduino.
   When the button is pressed, the buzzer should play the "Happy Birthday" melody once.
   After the melody finishes, the system waits until the button is pressed again to replay the tune.
 */
 
-const int buzzerPin = 8;   // Buzzer connected to pin 8
-const int buttonPin = 2;   // Button connected to pin 2
+const int buzzerPin = 8;   // buzzer connected to pin 8
+const int buttonPin = 2;   // button connected to pin 2
 
 // Basic note frequencies (Hz)
 #define NOTE_C4  262
@@ -20,7 +20,7 @@ const int buttonPin = 2;   // Button connected to pin 2
 #define NOTE_D5  587
 #define NOTE_E5  659
 
-// Simple "Happy Birthday" melody
+// Happy Birthday melody
 int melody[] = {
   NOTE_G4, NOTE_G4, NOTE_A4, NOTE_G4, NOTE_C5, NOTE_B4,
   NOTE_G4, NOTE_G4, NOTE_A4, NOTE_G4, NOTE_D5, NOTE_C5,
@@ -28,7 +28,7 @@ int melody[] = {
   NOTE_F5, NOTE_F5, NOTE_E5, NOTE_C5, NOTE_D5, NOTE_C5
 };
 
-// Relative note lengths (4 = quarter, 8 = eighth, etc.)
+//relative note lengths (4 = quarter, 8 = eighth, etc.)
 int noteDurations[] = {
   4, 4, 2, 2, 2, 1,
   4, 4, 2, 2, 2, 1,
@@ -63,3 +63,4 @@ void playHappyBirthday() {
   }
   noTone(buzzerPin);
 }
+
