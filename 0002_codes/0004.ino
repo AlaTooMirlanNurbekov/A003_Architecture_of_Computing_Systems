@@ -1,6 +1,6 @@
 /* 
-  Task 0004: servo barrier gate
-  Description: In this task we use a small servo motor and a push button to imitate 
+  Task 0004 : servo barrier gate
+  Description: Use a 9G servo motor and a push button to imitate 
   a simple barrier gate. When the button is pressed, the gate opens 
   slowly, stays open for a short moment, and then closes back.  
   The LED shows that the gate is moving.  
