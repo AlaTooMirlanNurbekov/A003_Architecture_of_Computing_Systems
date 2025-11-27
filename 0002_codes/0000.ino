@@ -1,14 +1,14 @@
 /* 
-  Task 0001 : Alternating Dual LED System
-  Description: In this activity, two LEDs are connected to the Arduino along with a single push button.
+  Task 0000 : alternating dual LED system
+  Description: Two LEDs are connected to the Arduino along with a single push button.
   When the button is pressed, the LEDs should alternate states — one turns ON while the other turns OFF.
   This switching should continue 100 times (a full cycle means both LEDs have changed once).
   After completing all cycles, the system should stop and wait until the button is pressed again.
 */
 
-const int led1 = 12;      // First LED connected to pin 12
-const int led2 = 13;      // Second LED connected to pin 13
-const int buttonPin = 2;  // Button connected to pin 2
+const int led1 = 12;      // first LED connected to pin 12
+const int led2 = 13;      // second LED connected to pin 13
+const int buttonPin = 2;  // button connected to pin 2
 
 void setup() {
   pinMode(led1, OUTPUT);
@@ -29,7 +29,7 @@ void loop() {
       delay(300);
     }
 
-    // turn both off after loop
+    //turn both off after loop
     digitalWrite(led1, LOW);
     digitalWrite(led2, LOW);
 
@@ -39,3 +39,4 @@ void loop() {
     }
   }
 }
+
