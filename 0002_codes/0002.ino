@@ -1,39 +1,32 @@
 /* 
-  Task 0002 : Traffic Light Imitation
-  Description: In this activity, three LEDs (red, yellow, and green) are connected to the Arduino
-  to simulate a basic traffic light system. The sequence should operate as follows:
-  - Green light turns ON for 5 seconds.
-  - Yellow light turns ON for 2 seconds (green turns OFF).
-  - Red light turns ON for 5 seconds (yellow turns OFF).
-  The cycle repeats continuously, imitating a simple intersection traffic light.
+  Task 0002 : brightness control LED (PWM)
+  Description: A push button is used to change the brightness of an LED.
+  Each button press increases the brightness step by step. When the LED 
+  reaches the highest level, the next press resets it back to zero. 
 */
 
-const int redLed = 11;      // Red LED connected to pin 11
-const int yellowLed = 12;   // Yellow LED connected to pin 12
-const int greenLed = 13;    // Green LED connected to pin 13
+const int led = 5;   // LED on a PWM pin
+const int btn = 2;   // btn to GND, use internal pull-up
+
+int level = 0;       // 0..4 steps (0%, 25%, 50%, 75%, 100%)
 
 void setup() {
-  pinMode(redLed, OUTPUT);
-  pinMode(yellowLed, OUTPUT);
-  pinMode(greenLed, OUTPUT);
+  pinMode(led, OUTPUT);
+  pinMode(btn, INPUT_PULLUP);
 }
 
 void loop() {
-  // Green ON for 5 seconds
-  digitalWrite(greenLed, HIGH);
-  digitalWrite(yellowLed, LOW);
-  digitalWrite(redLed, LOW);
-  delay(5000);
 
-  // Yellow ON for 2 seconds
-  digitalWrite(greenLed, LOW);
-  digitalWrite(yellowLed, HIGH);
-  digitalWrite(redLed, LOW);
-  delay(2000);
+  if (digitalRead(btn) == LOW) {
+    while (digitalRead(btn) == LOW) {}   // wait release
 
-  // Red ON for 5 seconds
-  digitalWrite(greenLed, LOW);
-  digitalWrite(yellowLed, LOW);
-  digitalWrite(redLed, HIGH);
-  delay(5000);
+    level++;
+    if (level > 4) level = 0;
+
+    int brightness = map(level, 0, 4, 0, 255);
+    analogWrite(led, brightness);
+
+    delay(150); // simple debounce
+  }
 }
+
